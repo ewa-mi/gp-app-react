@@ -3,14 +3,17 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./DoctorSchedule.css";
 
-export default function DoctorSchedule() {
+export default function DoctorSchedule(props) {
   const [data, setData] = useState([]);
+
   useEffect(() => {
     const fetchData = async () => {
+      props.setLoading(true);
       const response = await axios.get(
         `https://my-json-server.typicode.com/Codaisseur/patient-doctor-data/doctors`
       );
 
+      props.setLoading(false);
       setData(response.data);
     };
     fetchData();

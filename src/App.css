@@ -9,3 +9,7 @@
 table {
   display: inline;
 }
+
+.loading {
+  color: rgb(14, 185, 177);
+}
