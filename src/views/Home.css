@@ -1,0 +1,23 @@
+.timecheck {
+  font-weight: bold;
+}
+
+.buttonSection {
+  display: inline;
+}
+.click {
+  font-size: 16px;
+  color: rgb(255, 255, 255);
+  background: rgb(14, 185, 177);
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+
+  margin: 5px;
+}
+
+.click:hover {
+  background: rgb(245, 119, 47);
+  letter-spacing: 0.1px;
+  color: white;
+}

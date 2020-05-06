@@ -1,15 +1,14 @@
 a {
-  font-size: 15px;
   padding: 25px;
   text-align: center;
-  font-size: 23px;
+  font-size: 16px;
   font-family: Helvetica, sans-serif;
   text-decoration: none;
   color: black;
 }
 
 a:hover {
-  color: rgb(10, 161, 154);
+  color: rgb(14, 185, 177);
 }
 
 .menu {
