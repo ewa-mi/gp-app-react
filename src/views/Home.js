@@ -16,11 +16,12 @@ export default function Home() {
       <p>To make an appointment </p>
       <p> call: 020 555 5555</p>
       <br></br>
-      <div className="buttonSection">
+      <div className="button1">
         <Link className="click" to={`/doctor-schedule`}>
           Who is on duty?
-        </Link>{" "}
-        <span></span>
+        </Link>
+      </div>
+      <div>
         <Link className="click" to={`/patient-signup`}>
           I am a new patient
         </Link>
