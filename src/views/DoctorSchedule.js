@@ -29,7 +29,7 @@ export default function DoctorSchedule(props) {
   });
 
   return (
-    <div>
+    <div className="all">
       <h1>Who is on duty?</h1>
       <div className="tableArea">
         <table>

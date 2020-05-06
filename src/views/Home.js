@@ -5,7 +5,7 @@ import Timecheck from "./Timecheck.js";
 
 export default function Home() {
   return (
-    <div>
+    <div className="all">
       <h1>Welcome to AMS GPs</h1>
       <br></br>
       <Timecheck />

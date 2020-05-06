@@ -1,0 +1,26 @@
+.formBoard {
+  width: 280px;
+  margin: 0 auto;
+}
+
+label {
+  padding: 10px;
+  display: block;
+}
+
+input,
+select {
+  margin-left: 10px;
+}
+
+.subButton {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  cursor: pointer;
+  font-size: 30px;
+}
+
+.subButton:hover,
+.success {
+  color: tomato;
+}

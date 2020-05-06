@@ -8,13 +8,12 @@ import Home from "./views/Home.js";
 import NavBar from "./NavBar.js";
 
 export default function App() {
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   return (
     <div className="App">
       <NavBar />
-      <div className="loading">{loading && "LOADING DATA..."}</div>
-
+      {loading && <div className="loading">LOADING DATA...</div>}
       <Switch>
         <Route path="/doctor-schedule">
           <DoctorSchedule setLoading={setLoading} />
