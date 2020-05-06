@@ -1,0 +1,17 @@
+a {
+  font-size: 15px;
+  padding: 25px;
+  text-align: center;
+  font-size: 23px;
+  font-family: Helvetica, sans-serif;
+  text-decoration: none;
+  color: black;
+}
+
+a:hover {
+  color: rgb(10, 161, 154);
+}
+
+.menu {
+  padding: 50px;
+}
