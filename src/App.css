@@ -5,3 +5,7 @@
 .active {
   color: tomato;
 }
+
+table {
+  display: inline;
+}

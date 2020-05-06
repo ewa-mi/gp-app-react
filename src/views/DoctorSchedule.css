@@ -1,0 +1,14 @@
+.tableArea {
+  padding: 20px;
+}
+
+th {
+  background-color: rgb(171, 245, 228);
+}
+
+td,
+th {
+  border: 1px solid #999;
+  padding: 0.5rem;
+  text-align: center;
+}
