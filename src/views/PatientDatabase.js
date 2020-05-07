@@ -19,8 +19,7 @@ export default function PatientDatabase(props) {
 
   const selectBetween = data.map((doc) => {
     return (
-      <div>
-        key={doc.id}
+      <div key={doc.id}>
         <div>{doc.doctor}</div>
       </div>
     );
