@@ -23,7 +23,7 @@ export default function DoctorSchedule(props) {
     return (
       <tr key={doc.id}>
         <td>{doc.doctor}</td>
-        <td>{doc.onDuty === true ? "available" : "unavailable"}</td>
+        <td>{doc.onDuty === true ? "on duty" : "off duty"}</td>
       </tr>
     );
   });

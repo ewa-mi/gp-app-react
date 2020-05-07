@@ -19,7 +19,9 @@ export default function App() {
           <DoctorSchedule setLoading={setLoading} />
         </Route>
         <Route path="/patient-signup" component={PatientSignup} />
-        <Route path="/patient-database" component={PatientDatabase} />
+        <Route path="/patient-database">
+          <PatientDatabase setLoading={setLoading} />
+        </Route>
         <Route exact path="/" component={Home} />
       </Switch>
     </div>

@@ -30,7 +30,7 @@ export default function PatientSignup() {
 
   return (
     <div className="formBoard">
-      <h2>Patient signup</h2>
+      <h1>Patient signup</h1>
 
       <form onSubmit={(event) => onFormSubmit(event)}>
         <label>
