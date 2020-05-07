@@ -1,0 +1,19 @@
+.singlePatient {
+  padding: 5px;
+  border: 1px solid rgb(14, 185, 177);
+  width: 300px;
+  margin: 0 auto;
+  padding-bottom: 20px;
+  margin-bottom: 10px;
+}
+
+.details {
+  border: 2px solid rgb(14, 185, 177);
+  border-radius: 4px;
+  padding: 4px;
+  background: rgb(14, 185, 177);
+}
+
+.details:hover {
+  color: white;
+}

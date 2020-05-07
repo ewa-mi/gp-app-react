@@ -5,11 +5,12 @@ import "./PatientDatabase.css";
 
 export default function PatientDatabase(props) {
   const [doctors, setDoctors] = useState([]);
-  const [byDoctor, setByDoctor] = useState("all");
+  const [patients, setPatients] = useState([]);
+  const [byDoctor, setByDoctor] = useState("select");
   const [filteredPatients, setFilteredPatients] = useState([]);
 
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchDoctors = async () => {
       props.setLoading(true);
       const response = await axios.get(
         `https://my-json-server.typicode.com/Codaisseur/patient-doctor-data/doctors`
@@ -18,19 +19,30 @@ export default function PatientDatabase(props) {
       props.setLoading(false);
       setDoctors(response.data);
     };
-    fetchData();
+    fetchDoctors();
   }, []);
 
   useEffect(() => {
+    const fetchPatients = async () => {
+      props.setLoading(true);
+      const response = await axios.get(
+        `https://my-json-server.typicode.com/Codaisseur/patient-doctor-data/patients`
+      );
+      props.setLoading(false);
+      setPatients(response.data);
+    };
+    fetchPatients();
+
     let filteredDoctors = doctors.filter(
       (doctor) => doctor.doctor === byDoctor
     );
 
-    let filteredPatients = props.patients.sort(function (a, b) {
+    let filteredPatients = patients.sort(function (a, b) {
       return a.lastName.localeCompare(b.lastName);
     });
+
     if (filteredDoctors.length) {
-      filteredPatients = props.patients.filter(
+      filteredPatients = patients.filter(
         (patient) => patient.doctorId === filteredDoctors[0]?.id
       );
     }
@@ -58,7 +70,10 @@ export default function PatientDatabase(props) {
             setByDoctor(event.target.value);
           }}
         >
-          <option defaultValue="all">all</option>
+          <option defaultValue hidden>
+            select
+          </option>
+          <option value="all">all</option>
           <>{doctorsNames}</>
         </select>
         {filteredPatients?.map((patient) => (

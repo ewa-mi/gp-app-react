@@ -6,43 +6,15 @@ import PatientSignup from "./views/PatientSignup.js";
 import PatientDatabase from "./views/PatientDatabase.js";
 import Home from "./views/Home.js";
 import NavBar from "./NavBar.js";
-import axios from "axios";
 import PatientPage from "./views/PatientPage.js";
 
 export default function App() {
   const [loading, setLoading] = useState(false);
-  const [patients, setPatients] = useState([]);
-
-  useEffect(() => {
-    const fetchPatients = async () => {
-      setLoading(true);
-      const response = await axios.get(
-        `https://my-json-server.typicode.com/Codaisseur/patient-doctor-data/patients`
-      );
-      setLoading(false);
-      setPatients(response.data);
-    };
-    fetchPatients();
-  }, []);
 
   const renderPatientPage = (routerProps) => {
-    let specificPatient = parseInt(routerProps.match.params.id);
-    let foundPatient = patients.find(
-      (patient) => parseInt(patient.id) === specificPatient
-    );
+    let patientId = parseInt(routerProps.match.params.id);
 
-    return (
-      <PatientPage
-        firstName={foundPatient.firstName}
-        lastName={foundPatient.lastName}
-        id={foundPatient.id}
-        dateOfBirth={foundPatient.dateOfBirth}
-        gender={foundPatient.gender}
-        email={foundPatient.email}
-        phoneNumber={foundPatient.phoneNumber}
-        prescriptions={foundPatient.prescriptions}
-      />
-    );
+    return <PatientPage patientId={patientId} setLoading={setLoading} />;
   };
 
   return (
@@ -59,7 +31,7 @@ export default function App() {
         </Route>
         <Route path="/patient-signup" component={PatientSignup} />
         <Route path="/patient-database">
-          <PatientDatabase setLoading={setLoading} patients={patients} />
+          <PatientDatabase setLoading={setLoading} />
         </Route>
         <Route exact path="/" component={Home} />
       </Switch>

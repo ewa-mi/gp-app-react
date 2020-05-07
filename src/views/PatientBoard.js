@@ -1,5 +1,5 @@
 import React from "react";
-import "./PatientsList.css";
+import "./PatientsBoard.css";
 import { Link } from "react-router-dom";
 
 export default function PatientBoard(props) {
@@ -10,7 +10,9 @@ export default function PatientBoard(props) {
         Name: {props.firstName} {props.lastName}
       </p>
       <p>Birth date: {props.dateOfBirth}</p>
-      <Link to={`/patient-database/${props.id}`}>show details</Link>
+      <Link className="details" to={`/patient-database/${props.id}`}>
+        show details
+      </Link>
     </div>
   );
 }

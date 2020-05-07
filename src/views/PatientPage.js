@@ -1,24 +1,43 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import "./PatientPage.css";
 
 export default function PatientPage(props) {
+  const [patient, setPatient] = useState({});
+
+  useEffect(() => {
+    const fetchPatient = async () => {
+      props.setLoading(true);
+      const response = await axios.get(
+        `https://my-json-server.typicode.com/Codaisseur/patient-doctor-data/patients/${props.patientId}`
+      );
+      props.setLoading(false);
+      setPatient(response.data);
+    };
+    fetchPatient();
+  }, []);
+
+  if (!Object.keys(patient).length) {
+    return null;
+  }
+
   return (
     <div className="dataPatient">
       <h1>
-        {props.firstName} {props.lastName}
+        {patient.firstName} {patient.lastName}
       </h1>
 
-      <p>Id: {props.id}</p>
-      <p>Date of birth:{props.dateOfBirth}</p>
-      <p>Gender: {props.gender}</p>
+      <p>Id: {patient.id}</p>
+      <p>Date of birth:{patient.dateOfBirth}</p>
+      <p>Gender: {patient.gender}</p>
       <h3>Contact details:</h3>
-      <p>Email: {props.email}</p>
-      <p>Phone: {props.phoneNumber}</p>
+      <p>Email: {patient.email}</p>
+      <p>Phone: {patient.phoneNumber}</p>
       <h3>Prescriptions:</h3>
 
       <ul>
-        {props.prescriptions.map((medicine) => (
-          <li>{medicine}</li>
+        {patient.prescriptions.map((medicine, index) => (
+          <li key={index}>{medicine}</li>
         ))}
       </ul>
     </div>
