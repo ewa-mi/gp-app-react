@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import PatientsList from "./PatientsList.js";
+import PatientBoard from "./PatientBoard.js";
 import "./PatientDatabase.css";
 
 export default function PatientDatabase(props) {
@@ -62,7 +62,7 @@ export default function PatientDatabase(props) {
           <>{doctorsNames}</>
         </select>
         {filteredPatients?.map((patient) => (
-          <PatientsList
+          <PatientBoard
             key={patient.id}
             id={patient.id}
             firstName={patient.firstName}
