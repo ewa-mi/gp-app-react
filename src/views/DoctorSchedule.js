@@ -9,9 +9,7 @@ export default function DoctorSchedule(props) {
   useEffect(() => {
     const fetchData = async () => {
       props.setLoading(true);
-      const response = await axios.get(
-        `https://my-json-server.typicode.com/Codaisseur/patient-doctor-data/doctors`
-      );
+      const response = await axios.get(`http://localhost:4000/doctors`);
 
       props.setLoading(false);
       setData(response.data);

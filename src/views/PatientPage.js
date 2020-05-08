@@ -9,7 +9,7 @@ export default function PatientPage(props) {
     const fetchPatient = async () => {
       props.setLoading(true);
       const response = await axios.get(
-        `https://my-json-server.typicode.com/Codaisseur/patient-doctor-data/patients/${props.patientId}`
+        `http://localhost:4000/patients/${props.patientId}`
       );
       props.setLoading(false);
       setPatient(response.data);

@@ -12,9 +12,7 @@ export default function PatientDatabase(props) {
   useEffect(() => {
     const fetchDoctors = async () => {
       props.setLoading(true);
-      const response = await axios.get(
-        `https://my-json-server.typicode.com/Codaisseur/patient-doctor-data/doctors`
-      );
+      const response = await axios.get(`http://localhost:4000/doctors`);
 
       props.setLoading(false);
       setDoctors(response.data);
@@ -25,9 +23,7 @@ export default function PatientDatabase(props) {
   useEffect(() => {
     const fetchPatients = async () => {
       props.setLoading(true);
-      const response = await axios.get(
-        `https://my-json-server.typicode.com/Codaisseur/patient-doctor-data/patients`
-      );
+      const response = await axios.get(`http://localhost:4000/patients`);
       props.setLoading(false);
       setPatients(response.data);
     };
@@ -50,7 +46,7 @@ export default function PatientDatabase(props) {
     setFilteredPatients(filteredPatients);
   }, [byDoctor]);
 
-  const doctorsNames = doctors.map((doc) => {
+  const doctorsNames = doctors?.map((doc) => {
     return (
       <option key={doc.id} value={doc.doctor}>
         {doc.doctor}

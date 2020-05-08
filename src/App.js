@@ -20,7 +20,7 @@ export default function App() {
   return (
     <div className="App">
       <NavBar />
-      {loading && <div className="loading">LOADING DATA...</div>}
+      {loading && <div className="loading">LOADING...</div>}
       <Switch>
         <Route
           path="/patient-database/:id"
