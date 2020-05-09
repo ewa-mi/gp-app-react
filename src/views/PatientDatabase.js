@@ -39,7 +39,7 @@ export default function PatientDatabase(props) {
 
     if (filteredDoctors.length) {
       filteredPatients = patients.filter(
-        (patient) => patient.doctorId === filteredDoctors[0]?.id
+        (patient) => patient.doctorId === filteredDoctors[0].id
       );
     }
 
