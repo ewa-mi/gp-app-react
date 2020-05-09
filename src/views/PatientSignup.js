@@ -9,7 +9,8 @@ export default function PatientSignup() {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [gender, setGender] = useState("");
-  const [birth, setBirth] = useState(new Date());
+  const [birth, setBirth] = useState("");
+  const [showNotification, setShowNotification] = useState(false);
   const [success, setSuccess] = useState(false);
 
   const onFormSubmit = (event) => {
@@ -23,9 +24,16 @@ export default function PatientSignup() {
       gender: gender,
       birth: birth,
     };
-    console.log(patientObject);
 
-    setSuccess(true);
+    if (firstName && lastName && email && phone && gender && birth) {
+      console.log(patientObject);
+      setSuccess(true);
+    } else {
+      console.log(patientObject);
+      setSuccess(false);
+    }
+
+    setShowNotification(true);
   };
 
   return (
@@ -80,7 +88,13 @@ export default function PatientSignup() {
         </label>
         <input className="subButton" type="submit" value="Submit" />
       </form>
-      {success && <p className="success">Success! You submitted your form!</p>}
+      {showNotification && (
+        <p className="success">
+          {success
+            ? "Success! You submitted your form!"
+            : "You didn't fill all the inputs, please provide required information."}
+        </p>
+      )}
     </div>
   );
 }
